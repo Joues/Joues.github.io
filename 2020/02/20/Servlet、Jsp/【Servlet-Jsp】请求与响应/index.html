@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#yihang'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>请求和响应 - 都说酒是陈的香</title>
+  
+  
+    <meta name="description" content="请求和响应 1. servlet的生命周期  如果servlet没有初始化，则要么正在初始化，正在撤销，要么就是不存在。">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/avatar/favicon.jpg">
+  
+
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            都说酒是陈的香 <b><sup style='color:#3AA757'>yihang</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/">
+      请求和响应
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.yihang.ml/" rel="nofollow">
+    <img src="avatar/avatar.png">
+    <p>周逸航</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Servlet%E3%80%81Jsp/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Servlet、Jsp</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年2月20日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>请求和响应 1. servlet的生命周期  如果servlet没有初始化，则要么正在初始化，正在撤销，要么就是不存在。</p>
+<a id="more"></a>
+
+<h1 id="请求和响应"><a href="#请求和响应" class="headerlink" title="请求和响应"></a>请求和响应</h1><h2 id="1-servlet的生命周期"><a href="#1-servlet的生命周期" class="headerlink" title="1. servlet的生命周期"></a>1. servlet的生命周期</h2><ul>
+<li><p>如果servlet没有初始化，则要么正在初始化，正在撤销，要么就是不存在。</p>
+<ul>
+<li>Web容器加载servlet类。</li>
+<li>初始化servlet（构造函数运行）</li>
+<li>init() (在servlet一生中只调用一次，而且必须在容器调用service()之前完成)</li>
+<li>service() (servlet一生主要都在这里度过，用于处理客户请求)</li>
+<li>destroy() （在servlet被垃圾回收之前有机会清理资源，与init()一样，destroy()也只能调用一次)</li>
+</ul>
+</li>
+<li><p>构造函数使servlet类成为对象。</p>
+</li>
+<li><p>init方法在servlet实例创建后，在service方法之前调用。</p>
+</li>
+<li><p>service方法在第一个客户请求到来时，容器会开始一个新线程，或者从线程池分配一个线程。</p>
+</li>
+<li><p>doGet和doPost方法：service方法根据请求的HTTP方法调用。</p>
+</li>
+<li><p>每个请求都在一个单独的线程中运行。</p>
+</li>
+<li><p>容器运行多个线程来处理一个servlet的多个请求。</p>
+</li>
+<li><p>每个客户请求都会生成一对新的请求和响应对象。</p>
+</li>
+<li><p>在调用构造函数和init方法之间，servlet处在一种薛定谔servlet状态。</p>
+<blockquote>
+<p>薛定谔状态：既没有完全死，也不完全活，介于二者之间的一个状态。</p>
+</blockquote>
+</li>
+<li><p>每个servlet都有一个ServletConfig对象。</p>
+<ul>
+<li>用于向servlet传递部署时信息。</li>
+<li>用于访问ServletContext</li>
+<li>参数在部署描述文件中配置。</li>
+</ul>
+</li>
+<li><p>每个web应用只有一个ServletContext。</p>
+</li>
+</ul>
+<h2 id="2-GET和POST"><a href="#2-GET和POST" class="headerlink" title="2. GET和POST"></a>2. GET和POST</h2><ul>
+<li>除了GET和POST外，Http方法还有HEAD、TRACE、OPTIONS、PUT、DELETE、CONNECT方法。</li>
+<li>HttpServlet中没有doConnect方法，其他都有。</li>
+<li>Get参数数据只能是放在请求行的内容，对参数数据有限制。</li>
+<li>POST有一个消息体，存放参数数据。</li>
+<li>GET不会对服务器做出任何改变，只用来获取某些东西。</li>
+<li>POST用于发送数据进行处理。</li>
+</ul>
+<h2 id="3-幂等"><a href="#3-幂等" class="headerlink" title="3. 幂等"></a>3. 幂等</h2><ul>
+<li>幂等：反复做同一件事，不会有预料不到的副作用。</li>
+<li>GET、HEAD、PUT是幂等的。</li>
+<li>POST不是幂等的。</li>
+<li>默认是GET请求。</li>
+</ul>
+<h2 id="4-请求方法"><a href="#4-请求方法" class="headerlink" title="4. 请求方法"></a>4. 请求方法</h2><ul>
+<li>getHeader方法获得客户平台和浏览器信息。</li>
+<li>getCookies方法获得与请求相关的cookie。</li>
+<li>getSession方法获得与客户相关的会话。</li>
+<li>getMethod方法获得请求的HTTP方法。</li>
+<li>getInputStream方法获得请求输入流。</li>
+<li>getRemotePort方法指得到客户的端口。</li>
+<li>对于一个servlet，远程意味着客户。</li>
+<li>getLocalPort方法指请求最后发送到哪个端口。</li>
+<li>getServerPort方法指请求原来发送到哪个端口。</li>
+</ul>
+<h2 id="5-响应方法"><a href="#5-响应方法" class="headerlink" title="5. 响应方法"></a>5. 响应方法</h2><ul>
+<li>setContextType方法设置MIME类型。</li>
+<li>setContextType方法可以告诉浏览器发回东西的类型，可能需要启动一个辅助应用。</li>
+<li>常见的MIME类型：<ul>
+<li>text/html</li>
+<li>application/pdf</li>
+<li>video/quicktime</li>
+<li>application/java</li>
+<li>image/jpeg</li>
+<li>application/jar</li>
+<li>application/octet-stream</li>
+<li>application/x-zip</li>
+</ul>
+</li>
+<li>getWriter获得字符输出流。</li>
+<li>getOutputStream获得字节输出流。</li>
+</ul>
+<h2 id="6-字节和字符输出流"><a href="#6-字节和字符输出流" class="headerlink" title="6. 字节和字符输出流"></a>6. 字节和字符输出流</h2><ul>
+<li>PrintWriter用于输出字符数据。</li>
+<li>ServletOutputStream用于输出字节。</li>
+<li>println写至PrintWriter。</li>
+<li>write挟制ServletOutputStream。</li>
+</ul>
+<h2 id="7-增加和设置响应首部"><a href="#7-增加和设置响应首部" class="headerlink" title="7. 增加和设置响应首部"></a>7. 增加和设置响应首部</h2><ul>
+<li>setHeader方法：如果响应中已经有同名的首部，则用这个值替换原来的值，否则增加一个新首部和值。</li>
+<li>addHeader方法：为响应新增加一个首部和值，或者向现有的首部增加一个值。</li>
+<li>setIntHeader方法：用提供的整数值替换现有首部的值，或者向响应增加一个新首部和值。</li>
+<li>如果相应中没有首部，setHeader和addHeader会增加一个首部和相应的值。</li>
+<li>如果已经有首部，setHeader会覆盖现有的值，addHeader将增加一个值。</li>
+</ul>
+<h2 id="8-重定向和转发"><a href="#8-重定向和转发" class="headerlink" title="8. 重定向和转发"></a>8. 重定向和转发</h2><h3 id="1-重定向"><a href="#1-重定向" class="headerlink" title="1. 重定向"></a>1. 重定向</h3><ul>
+<li>请求重定向让客户完成工作。</li>
+<li>servlet调用sendRedirect方法重定向。</li>
+<li>不能在写到响应之后再调用sendRedirect()。</li>
+<li>在servlet中应该明确，要么处理请求，要么调用sendRedirect()让别人处理请求。</li>
+<li>sendRedirect()取一个String，不是URL对象。</li>
+<li>用户会在地址栏看到新的URL。</li>
+</ul>
+<h3 id="2-转发"><a href="#2-转发" class="headerlink" title="2. 转发"></a>2. 转发</h3><ul>
+<li>请求转发在服务器端工作。</li>
+<li>浏览器地址栏URL没有变化。</li>
+</ul>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/>https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-29T21:39:33+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年5月29日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/&title=请求和响应 - 都说酒是陈的香&summary=请求和响应 1. servlet的生命周期  如果servlet没有初始化，则要么正在初始化，正在撤销，要么就是不存在。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/&title=请求和响应 - 都说酒是陈的香&summary=请求和响应 1. servlet的生命周期  如果servlet没有初始化，则要么正在初始化，正在撤销，要么就是不存在。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/&title=请求和响应 - 都说酒是陈的香&summary=请求和响应 1. servlet的生命周期  如果servlet没有初始化，则要么正在初始化，正在撤销，要么就是不存在。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91%E5%B1%9E%E6%80%A7%E5%92%8C%E7%9B%91%E5%90%AC%E8%80%85/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>属性和监听者</p>
+                <p class='content'>属性和监听者 1. servlet初始化参数 可以在配置文件中给一个servlet配置初始化参数。 在servlet代码中调用getServletConfig().getInitParamete...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91%E6%97%A0%E8%84%9A%E6%9C%AC%E7%9A%84JSP/'>
+                <p class='title'>无脚本的JSP<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>无脚本的JSP 1. JavaBean标准动作 1. &lt;jsp:useBean&gt;和&lt;jsp:getProperty&gt;
+
+
+无脚本的JSP1. JavaBean标准动作1....</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '请求和响应',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-servlet的生命周期"><span class="toc-text">1. servlet的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-GET和POST"><span class="toc-text">2. GET和POST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-幂等"><span class="toc-text">3. 幂等</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-请求方法"><span class="toc-text">4. 请求方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-响应方法"><span class="toc-text">5. 响应方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-字节和字符输出流"><span class="toc-text">6. 字节和字符输出流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-增加和设置响应首部"><span class="toc-text">7. 增加和设置响应首部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-重定向和转发"><span class="toc-text">8. 重定向和转发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-重定向"><span class="toc-text">1. 重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-转发"><span class="toc-text">2. 转发</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="/yihangjou@163.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/joues"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        本站使用
+        <a href="https://www.yihang.ml/" target="_blank" class="codename">都说酒是陈的香</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://www.yihang.ml">Copyright © 2017-2020 周逸航</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#yihang'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>Jsp技术 - 都说酒是陈的香</title>
+  
+  
+    <meta name="description" content="Jsp技术 Jsp 概述 Jsp：Java Server Page Jsp 程序是在传统的HTML文档中插入Java程序段或Jsp标签而形成。(*.jsp)Jsp技术">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/avatar/favicon.jpg">
+  
+
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            都说酒是陈的香 <b><sup style='color:#3AA757'>yihang</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91Jsp%E6%8A%80%E6%9C%AF/">
+      Jsp技术
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.yihang.ml/" rel="nofollow">
+    <img src="avatar/avatar.png">
+    <p>周逸航</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Servlet%E3%80%81Jsp/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Servlet、Jsp</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年2月20日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>Jsp技术 Jsp 概述 Jsp：Java Server Page Jsp 程序是在传统的HTML文档中插入<strong>Java程序段或Jsp标签</strong>而形成。(*.jsp)Jsp技术</p>
+<a id="more"></a>
+
+<h2 id="Jsp技术"><a href="#Jsp技术" class="headerlink" title="Jsp技术"></a>Jsp技术</h2><h3 id="1-Jsp-概述"><a href="#1-Jsp-概述" class="headerlink" title="1. Jsp 概述"></a>1. Jsp 概述</h3><ul>
+<li><p>Jsp：Java Server Page</p>
+</li>
+<li><p>Jsp 程序是在传统的HTML文档中插入<strong>Java程序段或Jsp标签</strong>而形成。(*.jsp)</p>
+</li>
+<li><p>Jsp 是一种实现静态和动态混合编码的技术。</p>
+</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span> contentType=<span class="string">"text/html; charset=utf-8"</span>  pageEncoding=<span class="string">"utf-8"</span>%&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">      &lt;%</span><br><span class="line">         Date d=<span class="keyword">new</span> Date();</span><br><span class="line">         <span class="keyword">int</span> h=d.getHours();</span><br><span class="line">         <span class="keyword">if</span>(h&gt;<span class="number">12</span>) out.print(<span class="string">"下午好"</span>);</span><br><span class="line">         <span class="keyword">else</span> out.print(<span class="string">"上午好"</span>);</span><br><span class="line">      %&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;% <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123; %&gt;</span><br><span class="line">    &lt;!-- Jsp表达式 --&gt;</span><br><span class="line">		&lt;div style="font-size:&lt;%=20+i%&gt;px"&gt;测试JSP&lt;/div&gt;</span><br><span class="line">     &lt;% &#125; %&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="Jsp-执行过程"><a href="#Jsp-执行过程" class="headerlink" title="* Jsp 执行过程"></a>* Jsp 执行过程</h4><p>Jsp页面中的<strong>HTML标记(静态部分)交给客户端浏览器</strong>直接显示。</p>
+<p><strong>服务器端执行&lt;%</strong>和<strong>%&gt;</strong>之间的Java程序(动态部分)，并把执行结果交给客户端的浏览器显示。 </p>
+<p><strong>服务器端</strong>还要负责处理相关的<strong>Jsp标记</strong>，并将有关的处理结果发送到客户的浏览器。</p>
+<h3 id="2-Jsp-脚本元素"><a href="#2-Jsp-脚本元素" class="headerlink" title="2. Jsp 脚本元素"></a>2. Jsp 脚本元素</h3><h4 id="2-1-HTML注释"><a href="#2-1-HTML注释" class="headerlink" title="2.1 HTML注释"></a>2.1 HTML注释</h4><p>  **<!-- 注释语句 --> **  客户端可见</p>
+<h4 id="2-2-隐藏的注释"><a href="#2-2-隐藏的注释" class="headerlink" title="2.2 隐藏的注释"></a>2.2 隐藏的注释</h4><p><strong>&lt;%– 注释语句 –%&gt;</strong>  客户端不可见</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%-- 张三编写   日期：  <span class="number">2016.3</span> --%&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">       <span class="function">function <span class="title">clickme</span><span class="params">()</span></span>&#123;</span><br><span class="line">           alert(<span class="string">"你敢点我!"</span>);     <span class="comment">// js 注释</span></span><br><span class="line">       &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;!-- 欢迎页面 --&gt;</span><br><span class="line">&lt;p onclick="clickme()" style="cursor: pointer"&gt;点击我&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-输出表达式"><a href="#2-3-输出表达式" class="headerlink" title="2.3 输出表达式"></a>2.3 输出表达式</h4><p> <strong>&lt;%= 表达式 %&gt;</strong></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;% String s=<span class="string">"abcde"</span>; %&gt;</span><br><span class="line">字符串s= &lt;%=s%&gt;，长度= &lt;%= s.length()%&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-全局变量声明"><a href="#2-4-全局变量声明" class="headerlink" title="2.4 全局变量声明"></a>2.4 <strong>全局变量</strong>声明</h4><p><strong>&lt;%! 变量声明; [声明; ] … %&gt;</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;% i++;  %&gt;</span><br><span class="line">  &lt;p&gt;您是第&lt;%=i%&gt;个访问本站的客户&lt;/p&gt;</span><br><span class="line">  &lt;%! <span class="keyword">int</span> i=<span class="number">0</span>; %&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-5-方法声明"><a href="#2-5-方法声明" class="headerlink" title="2.5 方法声明"></a>2.5 方法声明</h4><p> <strong>&lt;%! 方法代码 %&gt;</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;%! <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>  </span>&#123; </span><br><span class="line">              <span class="keyword">return</span> a+b; </span><br><span class="line">          &#125; </span><br><span class="line">   %&gt;</span><br><span class="line">  <span class="number">1</span>+<span class="number">2</span>=&lt;%= add(<span class="number">1</span>,<span class="number">2</span>) %&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-6-类声明"><a href="#2-6-类声明" class="headerlink" title="2.6 类声明"></a>2.6 类声明</h4><p> <strong>&lt;%! 类代码 %&gt;</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%! <span class="class"><span class="keyword">class</span> <span class="title">GF</span> </span>&#123;</span><br><span class="line">        	  String XM;</span><br><span class="line">        	  <span class="keyword">int</span> AGE;</span><br><span class="line">        	  GF(String xm, <span class="keyword">int</span> a) &#123; XM=xm; AGE=a; &#125;</span><br><span class="line">        	  <span class="function">String <span class="title">getXM</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> XM;  &#125;</span><br><span class="line">             &#125;</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;%GF a=<span class="keyword">new</span> GF(<span class="string">"小明"</span>,<span class="number">20</span>);%&gt;</span><br><span class="line">    &lt;%=a.getXM() %&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-Jsp动作组件"><a href="#3-Jsp动作组件" class="headerlink" title="3. Jsp动作组件"></a>3. Jsp动作组件</h3><ul>
+<li><p>&lt; jsp:include&gt;：在<strong>页面中包含</strong>一个文件。</p>
+</li>
+<li><p>&lt; jsp:forward&gt;：把<strong>请求转发</strong>到另一个新的页面。</p>
+</li>
+<li><p>&lt; jsp:param&gt;：在<strong>动作组件中引入</strong>参数信息。</p>
+</li>
+<li><p>&lt; jsp:useBean&gt;：寻找或者实例化一个<strong>JavaBean</strong>。 【JavaBean中使用】</p>
+</li>
+<li><p>&lt; jsp:setProperty&gt;：设置<strong>JavaBean</strong>的属性。【JavaBean中使用】</p>
+</li>
+<li><p>&lt; jsp:getProperty&gt;：输出某个<strong>JavaBean</strong>的属性。【JavaBean中使用】</p>
+</li>
+</ul>
+<h4 id="3-1-jsp-include"><a href="#3-1-jsp-include" class="headerlink" title="3.1 jsp:include"></a>3.1 <a href="jsp:include">jsp:include</a></h4><p>语法格式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:include page=<span class="string">"relativeURL"</span>/&gt;</span><br><span class="line">或</span><br><span class="line">	&lt;jsp:include page=<span class="string">"relativeURL"</span>&gt; </span><br><span class="line">		&lt;jsp:param name=<span class="string">"参数1"</span>  value=<span class="string">"参数1值"</span>/&gt;</span><br><span class="line">		…</span><br><span class="line">		&lt;jsp:param name=<span class="string">"参数n"</span>  value=<span class="string">"参数n值"</span>/&gt;</span><br><span class="line">	&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-2-lt-jsp-forward-gt"><a href="#3-2-lt-jsp-forward-gt" class="headerlink" title="3.2 &lt; jsp:forward&gt;"></a>3.2 &lt; jsp:forward&gt;</h4><p>语法格式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt; jsp:forward page=<span class="string">"relativeURL"</span>/&gt;</span><br><span class="line">或</span><br><span class="line">	&lt; jsp:forward page=<span class="string">"relativeURL"</span>&gt; </span><br><span class="line">		&lt;jsp:param name=“参数<span class="number">1</span>”  value=“参数<span class="number">1</span>值”/&gt;</span><br><span class="line">		…</span><br><span class="line">		&lt;jsp:param name=“参数n”  value=“参数n值”/&gt;</span><br><span class="line">	&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-3-lt-jsp-param-gt"><a href="#3-3-lt-jsp-param-gt" class="headerlink" title="3.3 &lt; jsp:param&gt;"></a>3.3 &lt; jsp:param&gt;</h4><ul>
+<li>用于<strong>传递参数</strong>信息，<strong>必须配合&lt; jsp:include&gt;或&lt; jsp:forward&gt;</strong>动作组件一起使用。</li>
+</ul>
+<p>语法格式：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:param name=“参数” value=“参数值”/&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-Jsp内置对象"><a href="#4-Jsp内置对象" class="headerlink" title="4. Jsp内置对象"></a>4. Jsp内置对象</h3><h4 id="4-1-request对象"><a href="#4-1-request对象" class="headerlink" title="4.1 request对象"></a>4.1 request对象</h4><ul>
+<li><p>request对象中<strong>封装</strong>了客户端发送过来的所有的<strong>请求数据</strong>（包括请求头信息，请求方式，客户端ip地址以及请求参数等）。</p>
+</li>
+<li><p>request对象的<strong>作用域为一次请求</strong>。</p>
+</li>
+</ul>
+<h4 id="4-2-response对象"><a href="#4-2-response对象" class="headerlink" title="4.2 response对象"></a>4.2 response对象</h4><ul>
+<li>response对象代表服务器对客户端<strong>请求的响应</strong>。</li>
+</ul>
+<p>基本用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setHeader</span><span class="params">(String name, String value)</span> </span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sendRedirect</span><span class="params">(String location)</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="4-2-1-response-setHeader-方法"><a href="#4-2-1-response-setHeader-方法" class="headerlink" title="4.2.1  response.setHeader()方法"></a>4.2.1  response.setHeader()方法</h5><ul>
+<li><p>用法1：设置页面<strong>自动刷新</strong></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(<span class="string">"refresh"</span>, <span class="string">"秒数"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用法2：设置<strong>定时跳转页面</strong></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(<span class="string">"refresh"</span>, <span class="string">"秒数 **;** URL=页面名称"</span>) ;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h5 id="4-2-2-response-sendRedirect-方法"><a href="#4-2-2-response-sendRedirect-方法" class="headerlink" title="4.2.2  response.sendRedirect()方法"></a>4.2.2  response.sendRedirect()方法</h5><ul>
+<li><p>用法1：请求<strong>重定向</strong>到新页面（<strong>页面跳转</strong>）</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"http://www.wust.edu.cn"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用法2：<strong>跳转时传递数据</strong></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"edit.jsp?id=1"</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h5 id="4-2-3-redirect和forward方式区别"><a href="#4-2-3-redirect和forward方式区别" class="headerlink" title="4.2.3 redirect和forward方式区别"></a>4.2.3 redirect和forward方式区别</h5><table>
+<thead>
+<tr>
+<th><strong>jsp:forward</strong></th>
+<th><strong>response.sendRedirect**</strong>()**</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>效率高，速度快</td>
+<td>效率低，速度慢</td>
+</tr>
+<tr>
+<td>地址栏不改变跳转，服务器端跳转，服务器之间内部转</td>
+<td>地址栏改变跳转，客户端跳转（其中地址可以是任意的）</td>
+</tr>
+<tr>
+<td>使用forward时，相同的request，依然能保留在下一个页面</td>
+<td>客户端跳转，不同的request</td>
+</tr>
+<tr>
+<td>传递参数：  &lt;jsp:param  name=” “ value=” “ /&gt;</td>
+<td>URL传递参数：response.sendRedirect(“test.jsp?id=1234”)</td>
+</tr>
+<tr>
+<td>无条件立刻跳转，之后的代码不再被执行</td>
+<td>所有代码执行完毕之后再跳转</td>
+</tr>
+<tr>
+<td>地址中的”/“代表网站地址，如:  <a href="http://localhost:8080/Test" target="_blank" rel="noopener">http://localhost:8080/Test</a></td>
+<td>地址中的”/“代表服务器地址:  <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></td>
+</tr>
+</tbody></table>
+<h4 id="4-3-session对象"><a href="#4-3-session对象" class="headerlink" title="4.3 session对象"></a>4.3 session对象</h4><ul>
+<li><p>session代表服务器与客户端所建立的会话。</p>
+<blockquote>
+<p>从一个客户端打开浏览器并连接到服务器开始，到客户关闭浏览器离开这个服务器结束，被称为一个会话。</p>
+</blockquote>
+</li>
+<li><p>当一个客户首次访问服务器上页面时，服务器将产生一个session对象，同时分配一个String类型的id号。</p>
+</li>
+<li><p>session可以实现在一个会话期间的多页面间的数据共享/传递。</p>
+</li>
+</ul>
+<h5 id="4-3-1-session基本用法"><a href="#4-3-1-session基本用法" class="headerlink" title="4.3.1 session基本用法"></a>4.3.1 <strong>session基本用法</strong></h5><ul>
+<li><p>session.setAtrribute(String name, Object value)</p>
+<blockquote>
+<p>用value来初始化session对象某个属性(name指定)的值;</p>
+<p>如果指定的属性不存在，则新建一个；如果已存在，则更改name属性的值。</p>
+</blockquote>
+</li>
+<li><p>session.getAtrribute(String name)</p>
+<blockquote>
+<p>获得由name指定名称的session对象属性的值;</p>
+<p>方法返回Object对象，因此，对返回的对象要用强制转换把得到的对象转换为此对象原来的类型;</p>
+<p>如果属性不存在，返回空值。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="4-4-application对象"><a href="#4-4-application对象" class="headerlink" title="4.4 application对象"></a>4.4 application对象</h4><ul>
+<li><p>Web服务器一旦启动，就会自动创建application对象，并一直保持，直到服务器关闭。</p>
+</li>
+<li><p>application对象负责提供应用程序在服务器中运行时的一些全局信息，客户端使用的application对象都是一样的。</p>
+</li>
+<li><p>在此期间，在任何地方对application对象相关属性的操作，都将影响到其他用户对此的访问。</p>
+</li>
+<li><p>application对象可以实现用户间数据的共享/传递。</p>
+</li>
+</ul>
+<p>4.4.1 application基本用法</p>
+<ul>
+<li><p>application.setAttribute(String name, Object value)</p>
+<blockquote>
+<p>用value来初始化application对象某个属性(name指定)的值;</p>
+<p>如果指定的属性不存在，则新建一个；如果已存在，则更改name属性的值。</p>
+</blockquote>
+</li>
+<li><p>application.getAttribute(String name)</p>
+<blockquote>
+<p>获得由name指定名称的application对象属性的值;</p>
+<p>方法返回Object对象，因此，对返回的对象要用强制转换把得到的对象转换为此对象原来的类型;</p>
+<p>如果属性不存在，返回空值。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="4-5-out对象"><a href="#4-5-out对象" class="headerlink" title="4.5 out对象"></a>4.5 out对象</h4><ul>
+<li><p>out对象用来向客户端发送数据(文本级)，其内容将是浏览器需要显示的内容。</p>
+</li>
+<li><p>常用方法：pirnt()</p>
+</li>
+</ul>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91Jsp%E6%8A%80%E6%9C%AF/>https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91Jsp%E6%8A%80%E6%9C%AF/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-29T21:38:04+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年5月29日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91Jsp%E6%8A%80%E6%9C%AF/&title=Jsp技术 - 都说酒是陈的香&summary=Jsp技术 Jsp 概述 Jsp：Java Server Page Jsp 程序是在传统的HTML文档中插入Java程序段或Jsp标签而形成。(*.jsp)Jsp技术"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91Jsp%E6%8A%80%E6%9C%AF/&title=Jsp技术 - 都说酒是陈的香&summary=Jsp技术 Jsp 概述 Jsp：Java Server Page Jsp 程序是在传统的HTML文档中插入Java程序段或Jsp标签而形成。(*.jsp)Jsp技术"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://www.yihang.ml/2020/02/20/Servlet%E3%80%81Jsp/%E3%80%90Servlet-Jsp%E3%80%91Jsp%E6%8A%80%E6%9C%AF/&title=Jsp技术 - 都说酒是陈的香&summary=Jsp技术 Jsp 概述 Jsp：Java Server Page Jsp 程序是在传统的HTML文档中插入Java程序段或Jsp标签而形成。(*.jsp)Jsp技术"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/02/20/Spring/%E3%80%90Spring%E3%80%911.%20Spring%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>1. Spring的体系结构</p>
+                <p class='content'> Spring是一个轻量级Java开发框架，最早由Rod Johnson创建，目的是为了解决企业级应用开发的业务逻辑层和其他各层的偶合问题。它是一个分层的JavaSE/EE full-stack...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/02/20/Spring/%E3%80%90Spring%E3%80%914.%20Spring%20AOP/'>
+                <p class='title'>4. Spring AOP<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>AOP ( Aspect-Oriented Programming ）即面向切面编程，它与OOP (Object-Oriented Programming ， 面向对象编程） 相辅相成，提供了与...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Jsp技术',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Jsp技术"><span class="toc-text">Jsp技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Jsp-概述"><span class="toc-text">1. Jsp 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Jsp-执行过程"><span class="toc-text">* Jsp 执行过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Jsp-脚本元素"><span class="toc-text">2. Jsp 脚本元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-HTML注释"><span class="toc-text">2.1 HTML注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-隐藏的注释"><span class="toc-text">2.2 隐藏的注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-输出表达式"><span class="toc-text">2.3 输出表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-全局变量声明"><span class="toc-text">2.4 全局变量声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-方法声明"><span class="toc-text">2.5 方法声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-类声明"><span class="toc-text">2.6 类声明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Jsp动作组件"><span class="toc-text">3. Jsp动作组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-jsp-include"><span class="toc-text">3.1 jsp:include</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-lt-jsp-forward-gt"><span class="toc-text">3.2 &lt; jsp:forward&gt;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-lt-jsp-param-gt"><span class="toc-text">3.3 &lt; jsp:param&gt;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Jsp内置对象"><span class="toc-text">4. Jsp内置对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-request对象"><span class="toc-text">4.1 request对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-response对象"><span class="toc-text">4.2 response对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-1-response-setHeader-方法"><span class="toc-text">4.2.1  response.setHeader()方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-response-sendRedirect-方法"><span class="toc-text">4.2.2  response.sendRedirect()方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-3-redirect和forward方式区别"><span class="toc-text">4.2.3 redirect和forward方式区别</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-session对象"><span class="toc-text">4.3 session对象</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-1-session基本用法"><span class="toc-text">4.3.1 session基本用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-application对象"><span class="toc-text">4.4 application对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-out对象"><span class="toc-text">4.5 out对象</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="/yihangjou@163.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/joues"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        本站使用
+        <a href="https://www.yihang.ml/" target="_blank" class="codename">都说酒是陈的香</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://www.yihang.ml">Copyright © 2017-2020 周逸航</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

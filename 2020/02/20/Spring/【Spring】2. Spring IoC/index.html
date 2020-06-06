@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#yihang'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+    <title>2. Spring IoC - 都说酒是陈的香</title>
+  
+  
+    <meta name="description" content="控制反转（Inversion of Control，IoC）是Spring框架的核心，用来消减计算机程序的偶合问题。
+依赖注入（Dependency Injection，DI）是IoC的另外一种说法，只是从不同的角度描述相同的概念。">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="/avatar/favicon.jpg">
+  
+
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            都说酒是陈的香 <b><sup style='color:#3AA757'>yihang</sup></b>
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%912.%20Spring%20IoC/">
+      2. Spring IoC
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.yihang.ml/" rel="nofollow">
+    <img src="avatar/avatar.png">
+    <p>周逸航</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Spring/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Spring</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年2月20日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p><strong>控制反转（Inversion of Control，IoC）</strong>是Spring框架的核心，用来消减计算机程序的偶合问题。</p>
+<p><strong>依赖注入（Dependency Injection，DI）</strong>是IoC的另外一种说法，只是从不同的角度描述相同的概念。</p>
+<a id="more"></a>
+
+<h2 id="2-Spring-IoC"><a href="#2-Spring-IoC" class="headerlink" title="2. Spring IoC"></a>2. Spring IoC</h2><h3 id="2-1-Spring-IoC的基本概念"><a href="#2-1-Spring-IoC的基本概念" class="headerlink" title="2.1 Spring IoC的基本概念"></a>2.1 Spring IoC的基本概念</h3><p><strong>控制反转（Inversion of Control，IoC）</strong>是Spring框架的核心，用来消减计算机程序的偶合问题。</p>
+<p><strong>依赖注入（Dependency Injection，DI）</strong>是IoC的另外一种说法，只是从不同的角度描述相同的概念。</p>
+<p>​        当Spring框架出现后，对象的实例不再由调用者来创建，而是由Spring容器来创建。Spring容器会负责控制程序之间的关系，而不是由调用者的程序代码直接控制。这样，<strong>控制权由调用者转移到Spring容器，控制权发生了反转</strong>，这就是<strong>Spring的控制反转</strong>。</p>
+<p>​        从Spring容器角度来看，<strong>Spring容器负责将被依赖对象赋值给调用者的成员变量</strong>，相当于<strong>为调用者注入它所依赖的实例</strong>，这就是<strong>Spring的依赖注入</strong>。</p>
+<p>​        综上所述，<strong>控制反转是一种通过描述（在Spring中可以是XML或注解）并通过第三方去产生或获取特定对象的方式</strong>。在Spring中实现控制反转的是IoC容器，其实现方法是依赖注入。</p>
+<h3 id="2-2-Spring-IoC容器"><a href="#2-2-Spring-IoC容器" class="headerlink" title="2.2 Spring IoC容器"></a>2.2 Spring IoC容器</h3><h4 id="2-2-1-BeanFactory"><a href="#2-2-1-BeanFactory" class="headerlink" title="2.2.1 BeanFactory"></a>2.2.1 BeanFactory</h4><p>​        BeanFactory由org.springframework.beans.factory.BeanFactory接口定义，他提供了完整的IoC服务支持，是一个管理Bean的工厂，主要负责初始化各种Bean。BeanFactory接口有多个实现类，其中比较常用的是org.springframework.beans.factory.xml.XmlBeanFactory。</p>
+<p>​        在创建BeanFactory实例时需要提供XML文件的绝对路径。下面是main方法中的一个示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//初始化Spring容器，加载配置文件</span></span><br><span class="line">    BeanFactory beanFac = <span class="keyword">new</span> XmlBeanFactory(</span><br><span class="line">    		<span class="keyword">new</span> FileSystemResource(<span class="string">"D:\eclipse-workspace\ch1\src\</span></span><br><span class="line"><span class="string">    		applicationContext.xml"</span>)</span><br><span class="line">    );</span><br><span class="line">    <span class="comment">//通过容器获取test实例</span></span><br><span class="line">    TestDao tt = (TestDao)beanFac.getBean(<span class="string">"test"</span>);</span><br><span class="line">    tt.sayHello();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-2-2-ApplicationContext"><a href="#2-2-2-ApplicationContext" class="headerlink" title="2.2.2 ApplicationContext"></a>2.2.2 ApplicationContext</h4><p>​        ApplicationContext是BeanFactory的子接口，也称为应用上下文，由org.springframework.context.ApplicationContext接口定义。ApplicationContext接口除了包含BeanFactory的所有功能以外，还添加了对国际化、资源访问、事件传播等内容的支持。</p>
+<p>​        创建ApplicationContext接口实例通常有一下<strong>3</strong>种方法：</p>
+<ul>
+<li><p><strong>通过ClassPathXmlApplicationContext创建</strong></p>
+<p>ClassPathXmlApplicationContext将从类路径目录（src根目录）中寻找指定的XML配置文件。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mian</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//初始化Spring容器ApplicationContext，加载配置文件</span></span><br><span class="line">    ApplicationContext appCon = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">    <span class="comment">//通过容器获取test实例</span></span><br><span class="line">    TestDao tt = <span class="keyword">new</span> (TestDao)appCon.getBean(<span class="string">"test"</span>);</span><br><span class="line">    tt.sayHello();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>通过FileSystemXmlApplicationContext创建</strong></p>
+<p>FileSystemXmlApplicationContext将从指定文件的绝对路径中寻找XML配置文件，找到并装载完成ApplicationContext的实例化工作。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mian</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//初始化Spring容器ApplicationContext，加载配置文件</span></span><br><span class="line">    ApplicationContext appCon = <span class="keyword">new</span> FileSystemXmlApplicationContext(<span class="string">"D:\eclipse-workspace\ch1\src\applicationContext.xml"</span>);</span><br><span class="line">    <span class="comment">//通过容器获取test实例</span></span><br><span class="line">    TestDao tt = <span class="keyword">new</span> (TestDao)appCon.getBean(<span class="string">"test"</span>);</span><br><span class="line">    tt.sayHello();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>采用绝对路径的加载方式将导致程序的灵活性变差，一般不推荐使用。因此块，通常在Spring的Java应用中采取通过ClassPathXmlApplicationContext类来实例化ApplicationContext容器的方式，而在Web应用中，ApplicationContext容器的实例化工作将交给Web服务器完成。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>通过Web服务器实例化ApplicationContext容器</strong></p>
+<p>在Web服务器实例化ApplicationContext容器时，一般使用基于org.framework.web.context.ContextLoaderListener的实现方式（需要将spring-web-x.x.x.RELEASE.jar复制到WEB-INF/lib目录中），此方法只需在web.xml中添加如下代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 加载src目录下的applicationContext.xml文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span></span><br><span class="line">    	classpath:applicationContext.xml</span><br><span class="line">    <span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 指定以ContextLoaderListener方式启动Spring容器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span></span><br><span class="line">    	org.framework.web.context.ContextLoaderListener</span><br><span class="line">    <span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h3 id="2-3-依赖注入的类型"><a href="#2-3-依赖注入的类型" class="headerlink" title="2.3 依赖注入的类型"></a>2.3 依赖注入的类型</h3><p>​        在Spring中实现IoC容器的方法是依赖注入，依赖注入的作用是在使用Spring框架创建对象时动态地将其所依赖的对象（例如属性值）注入Bean组件中。Spring框架的依赖注入通常有两种实现方式，一种是使用构造方法注入，另一种是使用属性的setter方法注入。</p>
+<h4 id="2-3-1-使用构造方法注入"><a href="#2-3-1-使用构造方法注入" class="headerlink" title="2.3.1 使用构造方法注入"></a>2.3.1 使用构造方法注入</h4><p>​        Spring框架可以采用Java的反射机制，通过构造方法完成依赖注入。</p>
+<p>实例讲解：</p>
+<ul>
+<li><p>创建dao包</p>
+<p><strong>创建dao包在service中使用构造方法依赖注入TestDIDao接口对象。</strong></p>
+<p>TestDIDao接口代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dao;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TestDIDao</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>TestDIDaoImpl实现类代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dao;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDIDaoImpl</span> <span class="keyword">implements</span> <span class="title">TestDIDao</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        system.out.println(<span class="string">"TestDIDao say: Hello, Study hard!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建service包</p>
+<p><strong>在TestDIServiceImpl中使用构造方法依赖注入TestDIDao接口对象。</strong></p>
+<p>TestDIService接口代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> service;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TestDIService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>TestDIServiceImpl实现类代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> service;</span><br><span class="line"><span class="keyword">import</span> dao.TestDIDao;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDIServiceImlp</span> <span class="keyword">implements</span> <span class="title">TestDIService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TestDIDao testDIDao;</span><br><span class="line">    <span class="comment">//构造方法,用于实现依赖注入接口对象testDIDao</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestDIServiceImpl</span><span class="params">(TestDIDao testDIDao)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="keyword">this</span>.testDIDao = testDIDao;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//调用testDIDao中的sayHello方法</span></span><br><span class="line">        testDIDao.sayHello();</span><br><span class="line">        System.out.println(<span class="string">"TestDIService构造方法注入say: Hello, Study hard!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写配置文件</p>
+<p>在src根目录下根目录下创建Spring配置文件applicationContext.xml。在配置文件中首先将dao.TestDIDaoImpl类托管给Spring，让Spring创建其对象，然后将service.TestDIServiceImpl类托管给Spring，让Spring创建其对象，同时给构造方法传递实参。配置文件代码如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></span></span><br><span class="line"><span class="tag"><span class="string">       					   http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">	模拟spring执行过程</span></span><br><span class="line"><span class="comment">		创建service实例：BookService bookService = new BookServiceImpl()	IoC  &lt;bean&gt;</span></span><br><span class="line"><span class="comment">		创建dao实例：BookDao bookDao = new BookDaoImpl()			IoC</span></span><br><span class="line"><span class="comment">		将dao设置给service：bookService.setBookDao(bookDao);		DI   &lt;property&gt;</span></span><br><span class="line"><span class="comment">		</span></span><br><span class="line"><span class="comment">		&lt;property&gt; 用于进行属性注入</span></span><br><span class="line"><span class="comment">			name： bean的属性名，通过setter方法获得</span></span><br><span class="line"><span class="comment">				setBookDao ##&gt; BookDao  ##&gt; bookDao</span></span><br><span class="line"><span class="comment">			ref ：另一个bean的id值的引用</span></span><br><span class="line"><span class="comment">	 --&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 将指定类TestDIDaoImpl配置给Spring，让Spring创建其实例 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myTestDIDao"</span> <span class="attr">class</span>=<span class="string">"dao.TestDIDaoImpl"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用构造方法注入 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"testDIService"</span> <span class="attr">class</span>=<span class="string">"service.TestDIServiceImpl"</span>&gt;</span></span><br><span class="line">    	<span class="comment">&lt;!-- 将myTestDIDao注入到TestDIServiceImpl类的属性testDIDao上 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">ref</span>=<span class="string">"myTestDIDao"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建test包</p>
+<p>创建测试类TestDI，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">package</span> test;</span><br><span class="line">  <span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line">  <span class="keyword">import</span> service.TestDIService;</span><br><span class="line">  <span class="keyword">public</span> classs TestDI &#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">          <span class="comment">//初始化Spring容器ApplicationContext，加载配置文件</span></span><br><span class="line">      	ApplicationContext appCon = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">      	<span class="comment">//通过容器获取testDIService实例，测试构造方法注入</span></span><br><span class="line">      	TestDIService ts = (TestDIService)appCon.getBean(<span class="string">"testDIService"</span>);</span><br><span class="line">      	ts.sayHello();</span><br><span class="line">      &#125;  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行效果：</p>
+<p>![image-20191122090138765](E:\YihangJou\Examples Demo（SSM+SpringBoot）\A_Note\Spring\asset\image-20191122090138765.png)</p>
+</li>
+</ul>
+<h4 id="2-3-2-使用属性的setter方法注入"><a href="#2-3-2-使用属性的setter方法注入" class="headerlink" title="2.3.2 使用属性的setter方法注入"></a>2.3.2 使用属性的setter方法注入</h4><p>​        使用setter方法注入是Spring框架中最主流的注入方式，它利用Java Bean规范所定义的setter方法来完成注入，灵活且可读性高。对于setter方法注入，Spring框架也是使用Java的反射机制实现的。</p>
+<p>实例讲解：</p>
+<ul>
+<li><p>创建接口实现类TestDIServiceImpl</p>
+<p>在service包中创建接口实现类TestDIServiceImpl1，在TestDIServiceImpl1中使用属性的setter方法依赖注入TestDIDao接口对象，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> service;</span><br><span class="line"><span class="keyword">import</span> dao.TestDIDao;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDIServiceImpl</span> <span class="keyword">implements</span> <span class="title">TestDIService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> TestDIDao testDIDao;</span><br><span class="line">    <span class="comment">//添加testDIDao属性的setter方法，用于实现依赖注入</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTestDIDao</span><span class="params">(TestDIDao testDIDao)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.testDIDao = testDIDao;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="comment">//调用testDIDao中的sayHello方法</span></span><br><span class="line">        testDIDao.sayHello();</span><br><span class="line">        System.out.println(<span class="string">"TestDIService setter方法注入 say: Hello, Study hard!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将TestDIServiceImpl1类托管给Spring</p>
+<p>让Spring创建其对象，同时调用TestDISeriveImpl1类的setter方法完成依赖注入。代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 使用setter方法注入 --&gt;</span><br><span class="line">&lt;bean id=<span class="string">"testDIService1"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"service.TestDIServiceImpl1"</span>&gt;</span><br><span class="line">    &lt;!-- 调用TestDIServiceImpl1类的setter方法，将myTestDIDao注入到TestDIServiceImpl1类的属性testDIDao上 --&gt;</span><br><span class="line">    &lt;property name=<span class="string">"testDIDao"</span> ref=<span class="string">"myTestDIDao"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在test中测试setter方法注入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过容器获取testDIService实例，测试setter方法注入</span></span><br><span class="line">TestDIService ts1=(TestDIService)appCon.getBean(<span class="string">"testDIService1"</span>);</span><br><span class="line">ts1.sayHello();</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>运行效果：</p>
+<p>![image-20191123233202956](E:\YihangJou\Examples Demo（SSM+SpringBoot）\A_Note\Spring\asset\image-20191123233202956.png)</p>
+</li>
+</ul>
+
+          
+            <div class='article_footer'>
+              
+                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=https://www.yihang.ml/2020/02/20/Spring/%E3%80%90Spring%E3%80%912.%20Spring%20IoC/>https://www.yihang.ml/2020/02/20/Spring/%E3%80%90Spring%E3%80%912.%20Spring%20IoC/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
+            </div>
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-05-29T21:43:01+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年5月29日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.yihang.ml/2020/02/20/Spring/%E3%80%90Spring%E3%80%912.%20Spring%20IoC/&title=2. Spring IoC - 都说酒是陈的香&summary=控制反转（Inversion of Control，IoC）是Spring框架的核心，用来消减计算机程序的偶合问题。
+依赖注入（Dependency Injection，DI）是IoC的另外一种说法，只是从不同的角度描述相同的概念。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.yihang.ml/2020/02/20/Spring/%E3%80%90Spring%E3%80%912.%20Spring%20IoC/&title=2. Spring IoC - 都说酒是陈的香&summary=控制反转（Inversion of Control，IoC）是Spring框架的核心，用来消减计算机程序的偶合问题。
+依赖注入（Dependency Injection，DI）是IoC的另外一种说法，只是从不同的角度描述相同的概念。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://www.yihang.ml/2020/02/20/Spring/%E3%80%90Spring%E3%80%912.%20Spring%20IoC/&title=2. Spring IoC - 都说酒是陈的香&summary=控制反转（Inversion of Control，IoC）是Spring框架的核心，用来消减计算机程序的偶合问题。
+依赖注入（Dependency Injection，DI）是IoC的另外一种说法，只是从不同的角度描述相同的概念。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/02/20/Spring/%E3%80%90Spring%E3%80%914.%20Spring%20AOP/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>4. Spring AOP</p>
+                <p class='content'>AOP ( Aspect-Oriented Programming ）即面向切面编程，它与OOP (Object-Oriented Programming ， 面向对象编程） 相辅相成，提供了与...</p>
+              </a>
+            
+            
+              <a class='next' href='/2020/02/20/Spring/%E3%80%90Spring%E3%80%915.%20Spring%E7%9A%84%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/'>
+                <p class='title'>5. Spring的事务管理<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Spring的事务管理
+
+
+5. Spring的事务管理5.1 Spring的数据库编程5.1.1 SpringJDBC的配置5.1.2 SpringJdbcTemplate的常用方法5.2 编...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '2. Spring IoC',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper blur desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Spring-IoC"><span class="toc-text">2. Spring IoC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Spring-IoC的基本概念"><span class="toc-text">2.1 Spring IoC的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Spring-IoC容器"><span class="toc-text">2.2 Spring IoC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-BeanFactory"><span class="toc-text">2.2.1 BeanFactory</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-ApplicationContext"><span class="toc-text">2.2.2 ApplicationContext</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-依赖注入的类型"><span class="toc-text">2.3 依赖注入的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-使用构造方法注入"><span class="toc-text">2.3.1 使用构造方法注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-使用属性的setter方法注入"><span class="toc-text">2.3.2 使用属性的setter方法注入</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="/yihangjou@163.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/joues"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        本站使用
+        <a href="https://www.yihang.ml/" target="_blank" class="codename">都说酒是陈的香</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://www.yihang.ml">Copyright © 2017-2020 周逸航</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
+    });
+  </script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.5/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 标准 markdown 描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
