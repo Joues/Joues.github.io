@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -18,8 +16,10 @@
 
   <!-- 页面元数据 -->
   
-    <title>归档：2020 - 都说酒是陈的香</title>
+    <title>CentOS常用命令 - 都说酒是陈的香</title>
   
+  
+    <meta name="description" content="Git常用命令（必备） Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库">
   
 
   <!-- feed -->
@@ -330,16 +330,11 @@
       
 
 <div class='l_main'>
-	
-		
-  <section class="post-list ">
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box blur reveal ">
   
+
+  
+    <article id="post" class="post white-box reveal blur article-type-post" itemscope itemprop="blogPost">
+      
 
 
   <section class='meta'>
@@ -349,11 +344,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h2 class="title">
-    <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%914.%20Spring%20AOP/">
-      4. Spring AOP
+  <h1 class="title">
+    <a href="/2020/07/03/Linux/CentOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+      CentOS常用命令
     </a>
-  </h2>
+  </h1>
 
 
         
@@ -376,9 +371,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/Spring/' rel="nofollow">
+    <a href='/categories/Linux/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Spring</p>
+      <p>Linux</p>
     </a>
   </div>
 
@@ -389,14 +384,9 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年2月20日</p>
+    <p>发布于：2020年7月3日</p>
   </a>
 </div>
-
-            
-          
-            
-              
 
             
           
@@ -414,513 +404,59 @@
   </section>
 
 
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>AOP ( Aspect-Oriented Programming ）</strong>即<strong>面向切面编程</strong>，它与<strong>OOP</strong> (Object-Oriented Programming ， <strong>面向对象</strong>编程） 相辅相成，提供了与OOP 不同的抽象软件结构的视角。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%914.%20Spring%20AOP/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box blur reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
           
-  <h2 class="title">
-    <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%912.%20Spring%20IoC/">
-      2. Spring IoC
-    </a>
-  </h2>
+          <p>Git常用命令（必备） Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库</p>
+<a id="more"></a>
 
+<p>1.Linux目录结构</p>
+<p><img src="CentOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.assets/20190218130911727.PNG" alt="img"></p>
+<p>一、常用命令<br>1．命令的格式 命名名称 [-options] [parameter]<br>提示: 可选项和参数是可以省略的。<br>2．ls 列出当前目录下的所有子目录和文件。<br>（1）-a 显示所有的内容，包括隐藏文件(.开头的文件) . …<br>（2）-l 列出文件的详情信息，<br>（3）-lh 更加人性化显示<br>3．cd 切换目录命令<br>基本格式: cd 路径<br>cd /home/liurui/Desktop<br>cd /root/Desktop<br>快捷操作:<br>（1）cd 切换到当前的家目录下 /home/用户名 root用户 /root<br>（2）cd ~ 同上<br>（3）cd . 切换到当前目录<br>（4）cd … 返回上一层目录<br>4．相对路径和绝对路径<br>（1）绝对路径 从根目录下开始查找 /etc/xxx<br>（2）相对路径 从当前目录开始， ./ 或者 …/<br>5．touch 创建文件<br>格式: touch 文件名称。<br>提示: 如果 创建的文件存在，则会修改末次日期。<br>6．mkdir 创建目录<br>格式: mkdir 目录名称 只能创建一层目录<br>mkdir -p 多层目录 递归创建多层目录。<br>提示: 如果目录已经存在，则不能创建。</p>
+<p>7．rm 删除 文件或者目录<br>（1）删除文件格式: rm [-f] 文件名称。<br>-f 表示强制删除，<br>（2）删除目录格式: rm -r[f] 目录名称。</p>
+<p>8．拷贝<br>拷贝文件格式: cp 源文件 目标目录<br>拷贝目录格式: cp -r 源目录 目标目录</p>
+<p>9．移动或者重命名<br>移动格式: mv 文件/目录 目标目录<br>重命名: mv 文件/目录 目标目录/新文件名、目录名称。</p>
+<p>10．pwd 查看当前路径<br>（1）格式: pwd<br>11．cat 查看文件的内容，将内容全部显示出来。<br>（1）格式: cat [-nb] 文件名称<br>-n 所有的行都显示行号。<br>-b 空行不显示行号。<br>提示: 适合查看内容少的文件。<br>12．more、less 查看文件内容。不会将全部内容显示出来。<br>选项:<br>空格：显示下一屏<br>Enter:显示下一行<br>b: 显示上一屏<br>f: 显示下下一屏<br>q: 退出<br>————————————————<br>版权声明：本文为CSDN博主「飞行员红猪」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/aixiangnan/java/article/details/89329315" target="_blank" rel="noopener">https://blog.csdn.net/aixiangnan/java/article/details/89329315</a></p>
 
-        
-        <div class='new-meta-box'>
           
-            
-          
-            
+            <div class='article_footer'>
               
-<div class='new-meta-item author'>
-  <a href="https://www.yihang.ml/" rel="nofollow">
-    <img src="avatar/avatar.png">
-    <p>周逸航</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Spring/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Spring</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年2月20日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>控制反转（Inversion of Control，IoC）</strong>是Spring框架的核心，用来消减计算机程序的偶合问题。</p>
-<p><strong>依赖注入（Dependency Injection，DI）</strong>是IoC的另外一种说法，只是从不同的角度描述相同的概念。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%912.%20Spring%20IoC/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box blur reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%915.%20Spring%E7%9A%84%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/">
-      5. Spring的事务管理
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.yihang.ml/" rel="nofollow">
-    <img src="avatar/avatar.png">
-    <p>周逸航</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Spring/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Spring</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年2月20日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Spring的事务管理</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%915.%20Spring%E7%9A%84%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box blur reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%913.%20Spring%20Bean/">
-      3. Spring Bean
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.yihang.ml/" rel="nofollow">
-    <img src="avatar/avatar.png">
-    <p>周逸航</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/Spring/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>Spring</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年2月20日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Spring可以看作一个大型工厂，用于生产和管理Spring容器中的Bean。如果要使用这个工厂生产和管理bean，需要开发者将Bean配置在Spring的配置文件中。Spring框架支持XML和Properties两种格式的配置文件，在实际开发中常用XML格式的配置文件。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/02/20/Spring/%E3%80%90Spring%E3%80%913.%20Spring%20Bean/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box blur reveal ">
-  
-
-
-  <section class='meta'>
-    
-      
-      
-      <div class="meta" id="header-meta">
-        
-          
-  <h2 class="title">
-    <a href="/2020/02/20/%E9%A1%B9%E7%9B%AE/%E7%89%A9%E6%96%99%E7%94%9F%E4%BA%A7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
-      物料生产管理系统
-    </a>
-  </h2>
-
-
-        
-        <div class='new-meta-box'>
-          
-            
-          
-            
-              
-<div class='new-meta-item author'>
-  <a href="https://www.yihang.ml/" rel="nofollow">
-    <img src="avatar/avatar.png">
-    <p>周逸航</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-  
-  <div class='new-meta-item category'>
-    <a href='/categories/%E9%A1%B9%E7%9B%AE/' rel="nofollow">
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>项目</p>
-    </a>
-  </div>
-
-
-            
-          
-            
-              <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年2月20日</p>
-  </a>
-</div>
-
-            
-          
-            
-              
-
-            
-          
-            
-              
-
-            
-          
-        </div>
-        
-          <hr>
-        
-      </div>
-    
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基于物料的生产管理系统具备物料采购，仓储，产成品管理以及成品审核等多种功能。</p>
-      
-    </div>
-    
-      
-        <div class="button readmore">
-          <a href="/2020/02/20/%E9%A1%B9%E7%9B%AE/%E7%89%A9%E6%96%99%E7%94%9F%E4%BA%A7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
-            阅读全文 <i class="fas fa-chevron-right"></i>
-          </a>
-        </div>
-      
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/archives/2020/">
-            <section class="post prev white-box blur" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 2
-        </p>
-        
-      </div>
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-	
-</div>
-<aside class='l_side'>
-  
+                
   
     
     
 
-<section class="widget blogger blur desktop mobile">
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
   <div class='content'>
     
-      
-        <a class='avatar flat-box' href='/about/'>
-          <img no-lazy src='avatar/avatar.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">都说酒是陈的香</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
+      <blockquote>
         
           
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
           
         
           
-            <a href="/yihangjou@163.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
+            <p>本文永久链接是：<a href=https://www.yihang.ml/2020/07/03/Linux/CentOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/>https://www.yihang.ml/2020/07/03/Linux/CentOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></p>
           
         
-          
-            <a href="https://github.com/joues"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
+      </blockquote>
     
   </div>
 </section>
@@ -930,141 +466,189 @@
   
     
     
+
+<section class="widget qrcode  desktop mobile">
   
 
-  <section class="widget category blur desktop">
+  <div class='content article-entry'>
     
-  <header>
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
     
-  </header>
+  </div>
+</section>
+
+  
 
 
-    <div class='content'>
-      <ul class="entry navigation">
+              
+            </div>
+          
+        </div>
         
-          <li><a class="flat-box"
-            title="/categories/Git/" href="/categories/Git/"
-            id="categoriesGit"
-            ><div class='name'>Git</div><div class='badge'>(1)</div></a></li>
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-          <li><a class="flat-box"
-            title="/categories/Linux/" href="/categories/Linux/"
-            id="categoriesLinux"
-            ><div class='name'>Linux</div><div class='badge'>(1)</div></a></li>
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-05T14:47:48+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2020年7月5日</p>
+  </a>
+</div>
+
         
-          <li><a class="flat-box"
-            title="/categories/Servlet%E3%80%81Jsp/" href="/categories/Servlet%E3%80%81Jsp/"
-            id="categoriesServletE38081Jsp"
-            ><div class='name'>Servlet、Jsp</div><div class='badge'>(6)</div></a></li>
+      
         
-          <li><a class="flat-box"
-            title="/categories/Spring/" href="/categories/Spring/"
-            id="categoriesSpring"
-            ><div class='name'>Spring</div><div class='badge'>(6)</div></a></li>
+          
+
         
-          <li><a class="flat-box"
-            title="/categories/%E9%A1%B9%E7%9B%AE/" href="/categories/%E9%A1%B9%E7%9B%AE/"
-            id="categoriesE9A1B9E79BAE"
-            ><div class='name'>项目</div><div class='badge'>(1)</div></a></li>
+      
         
-      </ul>
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.yihang.ml/2020/07/03/Linux/CentOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=CentOS常用命令 - 都说酒是陈的香&summary=Git常用命令（必备） Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.yihang.ml/2020/07/03/Linux/CentOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=CentOS常用命令 - 都说酒是陈的香&summary=Git常用命令（必备） Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=https://www.yihang.ml/2020/07/03/Linux/CentOS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/&title=CentOS常用命令 - 都说酒是陈的香&summary=Git常用命令（必备） Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
     </div>
   </section>
 
 
+        
+        
+          <div class="prev-next">
+            
+            
+              <a class='next' href='/2020/05/29/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%88%E5%BF%85%E5%A4%87%EF%BC%89/'>
+                <p class='title'>Git常用命令（必备）<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>Git常用命令（必备） Workspace：工作区Index / Stage：暂存区Repository：仓库区（或本地仓库）Remote：远程仓库
+
+
+Git常用命令（必备）
+
+
+Worksp...</p>
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
   
 
   
-    
-    .article.article-entry.l_friends
-  .friends-group
-    .friend-content
-      display: flex
-      flex-wrap: wrap
-      margin: -0.5 * $gap
-      border-radius: $border-card
-      align-items: flex-start
-      line-height: 1.3
-      .friend-card
-        display: flex
-        border-radius: $border-codeblock
-        box-shadow: $boxshadow-card
-        padding: $gap * 0.5 0
-        margin: $gap * 0.5
-        margin-top: "calc(2.25 * %s + 32px)" % $gap
-        color: $color-meta
-        background: $color-block
-        justify-content: flex-start
-        align-content: flex-start
-        flex-direction: column
-        width: "calc(100%/4 - %s)" % $gap
-        @media screen and (max-width: $device-laptop)
-          width: "calc(100%/4 - %s)" % $gap
-
-        @media screen and (max-width: $device-tablet)
-          width: "calc(100%/3 - %s)" % $gap
-
-        @media screen and (max-width: $device-mobile)
-          width: "calc(100%/2 - %s)" % $gap
-
-        &:hover
-          .friend-left
-            .avatar
-              transform: scale(1.2) rotate(12deg)
-              box-shadow: $boxshadow-card-float
+    <!-- 显示推荐文章和评论 -->
 
 
 
-        .friend-left
-          display: flex
-          align-self: center
-          .avatar
-            width: 64px
-            height: 64px
-            trans()
-            box-shadow: $boxshadow-card
-            margin: $gap $gap * 0.5 $gap * 0.25 $gap * 0.5
-            margin-top: "calc(-1.25 * %s - 32px)" % $gap
-            border-radius: 100%
-            border: 2px solid white
-            background: white
+  <article class="post white-box reveal comments blur">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
 
 
-        .friend-right
-          margin: $gap * 0.25 $gap * 0.5
-          display: flex
-          flex-direction: column
-          text-align: center
-          p
-            text-align: center
+  
 
-          .friend-tags-wrapper
-            trans()
-            margin-left: -2px
-            word-break:break-all
-          p
-            margin: 0
-            &.friend-name
-              font-size: $fontsize-code
-              padding-top: 4px
-              font-weight: bold
 
-            &.tags
-              font-size: $fontsize-footnote
-              display: inline
-              background: none
-              word-wrap: break-word
-              padding-right: 4px
 
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'CentOS常用命令',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
   
 
   
     
     
 
-  
+
 
   
 
@@ -1142,14 +726,6 @@
   </footer>
 
 <script>setLoadingBarProgress(80);</script>
-
-
-
-
-	<!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-	
-
-	
 
 
       <script>setLoadingBarProgress(60);</script>
@@ -1254,6 +830,60 @@
 
 
 
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
 
 
 
